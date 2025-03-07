@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.mini_cms.mapper.UserMapper">
+<mapper namespace="com.example.cmsspringboot.mapper.UserMapper">
 
-    <select id="findByUsername" resultType="com.example.mini_cms.model.User">
+    <select id="findByUsername" resultType="com.example.cmsspringboot.model.User">
         SELECT * FROM users WHERE username = #{username}
     </select>
 

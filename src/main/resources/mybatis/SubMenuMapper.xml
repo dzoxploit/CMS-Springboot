@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.cmsspringboot.mapper.SubMenuMapper">
+
+    <select id="selectAll" resultType="com.example.cmsspringboot.model.SubMenu">
+        SELECT * FROM main_menu;
+    </select>
+
+    <select id="selectSubMenu" resultType="com.example.cmsspringboot.model.SubMenu">
+        SELECT sm.id, sm.sub_menu_name as name, sm.sub_menu_redirect as url,
+        FROM sub_menu as sm WHERE sm.sub_menu_status = 1 && sm.main_menu_id = #{id}
+    </select>
+
+
+    <insert id="insertSubMenu" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sub_menu (sub_menu_name, sub_menu_desc, sub_menu_status, sub_menu_redirect) 
+        VALUES (#{sub_menu_name}, #{sub_menu_desc}, #{sub_menu_status}, #{sub_menu_redirect})
+    </insert>
+
+    <update id="updateSubMenu">
+        UPDATE sub_menu
+        SET  sub_menu_name = #{sub_menu_name}, sub_menu_desc = #{sub_menu_desc}, sub_menu_status =  #{sub_menu_status},  sub_menu_redirect#{sub_menu_redirect}
+        WHERE id = #{id}
+    </update>
+    
+    <delete id="deleteMainMenu">
+        DELETE FROM main_menu WHERE id = #{id}
+    </delete>
+
+</mapper>
