@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.mini_cms.mapper.UserMapper">
 
     <select id="findAll" resultType="com.example.mini_cms.model.User">
-        SELECT * FROM articles WHERE username = #{username}
+        SELECT * FROM articles WHERE author = #{author}
     </select>
 
     <insert id="insertArticle" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO articles (title, content, author) VALUES (#{title}, #{content}, #{author})
+        INSERT INTO articles (title, content, author) 
+        VALUES (#{title}, #{content}, #{author})
     </insert>
 
-    <update id="updateArticle" useGeneratedKeys="true" keyProperty="id">
-        UPDATE articles SET title = #{title}, content = #{content}, author = #{author} WHERE id = #{id}
+    <update id="updateArticle">
+        UPDATE articles 
+        SET title = #{title}, content = #{content}, author = #{author} 
+        WHERE id = #{id}
     </update>
     
+    <delete id="deleteArticle">
+        DELETE FROM articles WHERE id = #{id}
+    </delete>
+
 </mapper>
