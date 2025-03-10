@@ -31,7 +31,6 @@ public class SecurityConfig {
                         .requestMatchers("/main-menus/**").authenticated()
                         .requestMatchers("/sub-menus/**").authenticated()
                         .requestMatchers("/menu/**").permitAll()
-                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
