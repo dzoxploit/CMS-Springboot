@@ -7,18 +7,18 @@ import lombok.Data;
 @Data
 public class SubMenuRequest {
     @NotBlank
-    private String sub_menu_name;
+    private String subMenuName;
 
     @Nullable
-    private String sub_menu_desc;
+    private String subMenuDesc;
 
     @NotBlank
-    private String sub_menu_redirect;
+    private String subMenuRedirect;
 
     @NotBlank
-    private Boolean sub_menu_status;
+    private Boolean subMenuStatus;
 
     @Nullable
-    private String main_menu_id;
+    private Long mainMenuId;
 }
 
