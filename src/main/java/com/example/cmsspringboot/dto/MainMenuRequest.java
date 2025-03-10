@@ -1,21 +1,26 @@
 package com.example.cmsspringboot.dto;
 
-import io.micrometer.common.lang.Nullable;
-import jakarta.validation.constraints.NotBlank;
+import com.example.cmsspringboot.model.MainMenu;
+import com.example.cmsspringboot.model.SubMenu;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class MainMenuRequest {
-    @NotBlank
-    private String main_menu_name;
+    private Long id;
+    private String mainMenuName;
+    private String mainMenuDesc;
+    private String mainMenuRedirect;
+    private Boolean mainMenuStatus;
+    private List<SubMenu> subMenus;
 
-    @Nullable
-    private String main_menu_desc;
-
-    @NotBlank
-    private String main_menu_redirect;
-
-    @NotBlank
-    private Boolean main_menu_status;
+    public MainMenuRequest(MainMenu mainMenu, List<SubMenu> subMenus) {
+        this.id = mainMenu.getId();
+        this.mainMenuName = mainMenu.getMainMenuName();
+        this.mainMenuDesc = mainMenu.getMainMenuDesc();
+        this.mainMenuRedirect = mainMenu.getMainMenuRedirect();
+        this.mainMenuStatus = mainMenu.getMainMenuStatus();
+        this.subMenus = subMenus;
+    }
 }
-

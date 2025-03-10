@@ -16,19 +16,19 @@ public class SubMenuService {
         return subMenuMapper.selectAll();
     }
 
-    public List<SubMenu> selectMenuFrontend(Long id){
+    public List<SubMenu> selectSubMenuFrontend(Long id){
         return subMenuMapper.selectSubMenu(id);
     }
 
-    public void saveMainMenu(SubMenu subMenu){
+    public void saveSubMenu(SubMenu subMenu){
         subMenuMapper.insertSubMenu(subMenu);;
     }
 
-    public void updateMainMenu(SubMenu subMenu, Long id){
+    public void updateSubMenu(SubMenu subMenu, Long id){
         subMenuMapper.updateSubMenu(subMenu, id);;
     }
 
-    public void deleteMainMenu(Long id){
+    public void deleteSubMenu(Long id){
         subMenuMapper.deleteSubMenu(id);
     }
 }

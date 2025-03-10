@@ -13,6 +13,9 @@
         FROM main_menu as m1 WHERE m1.main_menu_status = 1
     </select>
 
+     <select id="findMainMenuById" resultType="com.example.cmsspringboot.model.MainMenu">
+       SELECT * FROM main_menu WHERE id = #{id};
+    </select>
 
     <insert id="insertMainMenu" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO main_menu (main_menu_name, main_menu_desc, main_menu_status, main_menu_redirect) 

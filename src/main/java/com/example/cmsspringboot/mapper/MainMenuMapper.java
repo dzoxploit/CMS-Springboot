@@ -15,6 +15,9 @@ public interface MainMenuMapper {
     @Select("SELECT id, main_menu_name as name, main_menu_redirect as url FROM main_menu WHERE main_menu_status = 1")
     List<MainMenu> selectAllMenuFrontend();
 
+    @Select("SELECT * FROM main_menu WHERE id = #{id}")
+    List<MainMenu> findMainMenuById(Long id);
+
     @Insert("INSERT INTO main_menu (main_menu_name, main_menu_desc, main_menu_status, main_menu_redirect) " +
             "VALUES (#{main_menu_name}, #{main_menu_desc}, #{main_menu_status}, #{main_menu_redirect})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
