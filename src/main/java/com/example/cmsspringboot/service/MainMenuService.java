@@ -5,8 +5,6 @@ import com.example.cmsspringboot.mapper.MainMenuMapper;
 import com.example.cmsspringboot.mapper.SubMenuMapper;
 import com.example.cmsspringboot.dto.MainMenuRequest;
 import com.example.cmsspringboot.model.MainMenu;
-import com.example.cmsspringboot.model.SubMenu;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,8 +39,8 @@ public class MainMenuService {
     }
 
     // Mencari MainMenu berdasarkan ID
-    public MainMenu findMainMenuById(Long id) {
-        return (MainMenu) mainMenuMapper.findMainMenuById(id);
+    public List<MainMenu> findMainMenuById(Long id) {
+        return mainMenuMapper.findMainMenuById(id);
     }
 
     // Menyimpan MainMenu baru

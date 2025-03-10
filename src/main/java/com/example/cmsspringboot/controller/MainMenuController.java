@@ -42,7 +42,7 @@ public class MainMenuController {
     public Map<String, Object> getMainMenuById(@PathVariable Long id) {
         Map<String, Object> response = new HashMap<>();
         try {
-            List<MainMenu> mainMenu = mainMenuService.findMainMenuById(id);
+            List<MainMenu> mainMenu = (List<MainMenu>) mainMenuService.findMainMenuById(id);
             if (mainMenu != null) {
                 response.put("status", 200);
                 response.put("message", "Main menu found successfully");
